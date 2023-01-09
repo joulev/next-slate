@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@udecode/plate": "19.0.3",
+    "@udecode/plate-test-utils": "13.4.0",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

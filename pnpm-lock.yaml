@@ -4,6 +4,7 @@ specifiers:
   '@types/node': 18.11.18
   '@types/react': 18.0.26
   '@udecode/plate': 19.0.3
+  '@udecode/plate-test-utils': 13.4.0
   autoprefixer: 10.4.13
   eslint: 8.31.0
   eslint-config-next: 13.1.1
@@ -24,6 +25,7 @@ specifiers:
 
 dependencies:
   '@udecode/plate': 19.0.3_oxcuqrwmdsc4psdxokyh5wq2qu
+  '@udecode/plate-test-utils': 13.4.0_zrodh3hf6shq3aerrbvg6ae3he
   next: 13.1.1_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -1866,6 +1868,16 @@ packages:
       - jotai-zustand
       - react-native
       - scheduler
+    dev: false
+
+  /@udecode/plate-test-utils/13.4.0_zrodh3hf6shq3aerrbvg6ae3he:
+    resolution: {integrity: sha512-k/DTt+fv6i5ZXkOC/bZmAA7gwOW1vOuXvk6SCInweNxjS+jxUtszXj/Bw5SBD//Gm/KY00/Gd6elrfIUpT0ccQ==}
+    peerDependencies:
+      slate: '>=0.66.1'
+      slate-hyperscript: '>=0.66.0'
+    dependencies:
+      slate: 0.88.1
+      slate-hyperscript: 0.77.0_slate@0.88.1
     dev: false
 
   /@udecode/plate-trailing-block/19.0.3_edew3tizuo5cq7juv7o4p2kgje:
