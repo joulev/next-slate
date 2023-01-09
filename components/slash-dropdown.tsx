@@ -31,7 +31,7 @@ export default function SlashDropdown({
   ).filter(el => el[2].includes(queryLower) || el[1].toLowerCase().includes(queryLower));
   return (
     <div
-      className="fixed z-10 flex w-36 flex-col rounded border border-slate-200 bg-white p-3 transition-all"
+      className="fixed z-10 flex w-36 flex-col rounded border p-3 transition-all border-daw-slate-200 bg-daw-white"
       style={{ top, left }}
     >
       {buttonsToShow.length === 0 && <div className="text-gray-400">No results</div>}
