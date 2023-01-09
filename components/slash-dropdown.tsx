@@ -15,7 +15,7 @@ function useQuery() {
     ? Node.string(Node.get(editor, selection.anchor.path)).substring(0, selection.anchor.offset)
     : "";
   const query = str.split("/").at(-1);
-  if (!query || query.length === str.length) return null; // no / found
+  if (query === undefined || query.length === str.length) return null; // no / found
   if (query.split(" ").length > 1) return null; // space found
   return query;
 }
