@@ -38,7 +38,7 @@ function withDraggables(components: Components) {
 
 function withPlaceholders(components: Components) {
   return plateWithPlaceholders(components, [
-    { key: ELEMENT_PARAGRAPH, placeholder: "Type a paragraph", hideOnBlur: true },
+    { key: ELEMENT_PARAGRAPH, placeholder: "Type something or / for actions", hideOnBlur: false },
     { key: ELEMENT_H1, placeholder: "Untitled", hideOnBlur: false },
     { key: ELEMENT_H2, placeholder: "Untitled", hideOnBlur: false },
   ]);
