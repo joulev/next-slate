@@ -21,13 +21,14 @@ export default function SlashDropdown({
 }) {
   const editor = useSlate();
   const plateEditor = usePlateEditorRef();
+  const queryLower = query.toLowerCase();
   const buttonsToShow = (
     [
       [ELEMENT_H1, "Heading 1", "h1"],
       [ELEMENT_H2, "Heading 2", "h2"],
       [ELEMENT_PARAGRAPH, "Paragraph", "p"],
     ] as const
-  ).filter(el => el[2].includes(query));
+  ).filter(el => el[2].includes(queryLower) || el[1].toLowerCase().includes(queryLower));
   return (
     <div
       className="fixed z-10 flex w-36 flex-col rounded border border-slate-200 bg-white p-3 transition-all"
