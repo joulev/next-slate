@@ -7,14 +7,14 @@ import {
   createExitBreakPlugin,
 } from "@udecode/plate";
 import { createDndPlugin } from "@udecode/plate-ui-dnd";
+import { useState } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { initialValue } from "~/components/editor/initial-value";
-import { components } from "~/components/editor/components";
-import { exitBreakPlugin } from "~/components/editor/exit-break";
-import { useState } from "react";
-import { getCaretPosition } from "~/components/editor/get-caret-position";
-import SlashDropdown from "~/components/editor/slash-dropdown";
+import { components } from "~/utils/editor/components";
+import { exitBreakPlugin } from "~/utils/editor/exit-break";
+import { getCaretPosition } from "~/utils/editor/get-caret-position";
+import { initialValue } from "~/utils/editor/initial-value";
+import SlashDropdown from "~/utils/editor/slash-dropdown";
 
 const plugins = createPlugins(
   [

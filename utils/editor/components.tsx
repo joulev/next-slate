@@ -1,3 +1,4 @@
+import { plateUI } from "./plate-ui";
 import {
   ELEMENT_PARAGRAPH,
   ELEMENT_H1,
@@ -5,7 +6,6 @@ import {
   withPlaceholders as plateWithPlaceholders,
 } from "@udecode/plate";
 import { withDraggables as plateWithDraggables } from "@udecode/plate-ui-dnd";
-import { plateUI } from "./plate-ui";
 
 type Components = typeof plateUI;
 
