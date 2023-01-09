@@ -10,7 +10,7 @@ import { createDndPlugin } from "@udecode/plate-ui-dnd";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { initialValue } from "~/components/editor/initial-value";
-import { plateUI } from "~/components/editor/plate-ui";
+import { components } from "~/components/editor/components";
 
 const plugins = createPlugins(
   [
@@ -19,7 +19,7 @@ const plugins = createPlugins(
     createNodeIdPlugin(),
     createDndPlugin({ options: { enableScroller: true } }),
   ],
-  { components: plateUI }
+  { components }
 );
 
 const editableProps: TEditableProps = {
