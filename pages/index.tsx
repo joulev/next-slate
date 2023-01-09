@@ -4,5 +4,5 @@ import dynamic from "next/dynamic";
 const Editor = dynamic(() => import("~/components/editor"), { ssr: false });
 
 export default function IndexPage() {
-  return <Editor />;
+  return <Editor className="mx-auto h-screen max-w-prose py-24 px-6" />;
 }

@@ -7,11 +7,11 @@ const initialValue: Descendant[] = [
   { children: [{ text: "This is editable plain text, just like a <textarea>!" }] },
 ];
 
-export default function Editor() {
+export default function Editor({ className }: { className?: string }) {
   const [editor] = useState(() => withReact(withHistory(createEditor())));
   return (
     <Slate editor={editor} value={initialValue}>
-      <Editable placeholder="Enter some plain text..." />
+      <Editable placeholder="Enter some plain text..." className={className} />
     </Slate>
   );
 }
