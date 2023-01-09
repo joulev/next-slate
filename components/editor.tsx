@@ -32,9 +32,6 @@ export default function Editor({ className }: { className?: string }) {
   const [caretPos, setCaretPos] = useState({ top: 0, left: 0 });
   return (
     <DndProvider backend={HTML5Backend}>
-      {slashQuery !== null && (
-        <SlashDropdown top={caretPos.top} left={caretPos.left} query={slashQuery} />
-      )}
       <Plate
         editableProps={{
           className,
@@ -60,7 +57,11 @@ export default function Editor({ className }: { className?: string }) {
         }}
         plugins={plugins}
         initialValue={initialValue}
-      />
+      >
+        {slashQuery !== null && (
+          <SlashDropdown top={caretPos.top} left={caretPos.left} query={slashQuery} />
+        )}
+      </Plate>
     </DndProvider>
   );
 }
