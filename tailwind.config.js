@@ -1,7 +1,7 @@
 // @ts-check
 /** @type {import("tailwindcss").Config} */
 module.exports = {
-  content: ["./pages/**/*.tsx"],
+  content: ["./{pages,components}/**/*.tsx"],
   theme: { extend: {} },
-  plugins: [],
+  plugins: [require("tailwind-dark-aware")],
 };

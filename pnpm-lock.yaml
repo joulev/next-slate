@@ -14,6 +14,7 @@ specifiers:
   slate: 0.88.1
   slate-history: 0.86.0
   slate-react: 0.88.0
+  tailwind-dark-aware: 0.2.1
   tailwindcss: 3.2.4
   typescript: 4.9.4
 
@@ -33,6 +34,7 @@ devDependencies:
   eslint-config-next: 13.1.1_iukboom6ndih5an6iafl45j2fe
   postcss: 8.4.21
   prettier: 2.8.2
+  tailwind-dark-aware: 0.2.1_tailwindcss@3.2.4
   tailwindcss: 3.2.4_postcss@8.4.21
   typescript: 4.9.4
 
@@ -602,6 +604,21 @@ packages:
 
   /color-name/1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+    dev: true
+
+  /color-string/1.9.1:
+    resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
+    dependencies:
+      color-name: 1.1.4
+      simple-swizzle: 0.2.2
+    dev: true
+
+  /color/4.2.3:
+    resolution: {integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==}
+    engines: {node: '>=12.5.0'}
+    dependencies:
+      color-convert: 2.0.1
+      color-string: 1.9.1
     dev: true
 
   /compute-scroll-into-view/1.0.20:
@@ -1413,6 +1430,10 @@ packages:
       is-typed-array: 1.1.10
     dev: true
 
+  /is-arrayish/0.3.2:
+    resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
+    dev: true
+
   /is-bigint/1.0.4:
     resolution: {integrity: sha512-zB9CruMamjym81i2JZ3UMn54PKGsQzsJeo6xvN3HJJ4CAsQNB6iRutp2To77OfCNuoxspsIhzaPoO1zyCEhFOg==}
     dependencies:
@@ -2153,6 +2174,12 @@ packages:
       object-inspect: 1.12.2
     dev: true
 
+  /simple-swizzle/0.2.2:
+    resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
+    dependencies:
+      is-arrayish: 0.3.2
+    dev: true
+
   /slash/3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
@@ -2285,6 +2312,15 @@ packages:
     dependencies:
       '@pkgr/utils': 2.3.1
       tslib: 2.4.1
+    dev: true
+
+  /tailwind-dark-aware/0.2.1_tailwindcss@3.2.4:
+    resolution: {integrity: sha512-vQUTObqIRYqdVeNfk4PqhHCwaeTFLJFl1y0JLv2FN8HBum/ib5ef5RQ4N+NcdXgV9uYQN8gPP9udk7dnMVdiNw==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      color: 4.2.3
+      tailwindcss: 3.2.4_postcss@8.4.21
     dev: true
 
   /tailwindcss/3.2.4_postcss@8.4.21:
