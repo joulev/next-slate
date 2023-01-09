@@ -13,6 +13,8 @@ import { initialValue } from "~/components/editor/initial-value";
 import { components } from "~/components/editor/components";
 import { exitBreakPlugin } from "~/components/editor/exit-break";
 import { useState } from "react";
+import { getCaretPosition } from "~/components/editor/get-caret-position";
+import SlashDropdown from "./editor/slash-dropdown";
 
 const plugins = createPlugins(
   [
@@ -27,13 +29,18 @@ const plugins = createPlugins(
 
 export default function Editor({ className }: { className?: string }) {
   const [slashQuery, setSlashQuery] = useState<string | null>(null);
+  const [caretPos, setCaretPos] = useState({ top: 0, left: 0 });
   return (
     <DndProvider backend={HTML5Backend}>
-      {slashQuery === null ? <div>null</div> : <div>({slashQuery})</div>}
+      {slashQuery !== null && (
+        <SlashDropdown top={caretPos.top} left={caretPos.left} query={slashQuery} />
+      )}
       <Plate
         editableProps={{
           className,
           onKeyDown: e => {
+            setCaretPos(getCaretPosition());
+            // this is a very simplified version
             switch (e.key) {
               case "/":
                 setSlashQuery("");
@@ -47,7 +54,7 @@ export default function Editor({ className }: { className?: string }) {
                 else setSlashQuery(null);
                 break;
               default:
-                if (e.key.length === 1) setSlashQuery(slashQuery + e.key);
+                if (e.key.length === 1 && slashQuery !== null) setSlashQuery(slashQuery + e.key);
             }
           },
         }}
