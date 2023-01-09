@@ -48,7 +48,7 @@ export default function SlashDropdown({ top, left }: { top: number; left: number
               .fill(null)
               .forEach(() => editor.deleteBackward("character")); // why don't this function accept a length param?
           }}
-          className="rounded px-2 py-1 text-left transition hover:bg-slate-200"
+          className="rounded px-2 py-1 text-left transition hover:bg-daw-slate-200"
         >
           {label}
         </button>
