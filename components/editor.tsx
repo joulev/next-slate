@@ -2,10 +2,7 @@ import {
   Plate,
   TEditableProps,
   createPlugins,
-  createBlockquotePlugin,
-  createCodeBlockPlugin,
-  createHeadingPlugin,
-  createParagraphPlugin,
+  createBasicElementsPlugin,
   createBasicMarksPlugin,
   createNodeIdPlugin,
 } from "@udecode/plate";
@@ -17,10 +14,7 @@ import { plateUI } from "~/components/editor/plate-ui";
 
 const plugins = createPlugins(
   [
-    createBlockquotePlugin(),
-    createCodeBlockPlugin(),
-    createHeadingPlugin(),
-    createParagraphPlugin(),
+    createBasicElementsPlugin(),
     createBasicMarksPlugin(),
     createNodeIdPlugin(),
     createDndPlugin({ options: { enableScroller: true } }),

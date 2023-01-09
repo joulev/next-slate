@@ -4,7 +4,7 @@ import { jsx } from "@udecode/plate-test-utils";
 
 jsx;
 
-export const initialValue: any = (
+const initialValueRaw: any = (
   <fragment>
     <hh1>💅 Marks</hh1>
     <hh2>💧 Basic Marks</hh2>
@@ -35,3 +35,9 @@ export const initialValue: any = (
     </hp>
   </fragment>
 );
+
+let id = 0;
+export const initialValue = initialValueRaw.map((node: any) => {
+  id++;
+  return { ...node, id: id.toString() };
+});
