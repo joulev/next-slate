@@ -5,22 +5,26 @@ import {
   ELEMENT_H2,
   ELEMENT_H1,
 } from "@udecode/plate";
-import { Transforms } from "slate";
+import { Node, Transforms } from "slate";
 import { useSlate } from "slate-react";
 
-export default function SlashDropdown({
-  top,
-  left,
-  query,
-  onClick,
-}: {
-  top: number;
-  left: number;
-  query: string;
-  onClick: () => void;
-}) {
+function useQuery() {
+  const editor = useSlate();
+  const selection = editor.selection;
+  const str = selection
+    ? Node.string(Node.get(editor, selection.anchor.path)).substring(0, selection.anchor.offset)
+    : "";
+  const query = str.split("/").at(-1);
+  if (!query || query.length === str.length) return null; // no / found
+  if (query.split(" ").length > 1) return null; // space found
+  return query;
+}
+
+export default function SlashDropdown({ top, left }: { top: number; left: number }) {
   const editor = useSlate();
   const plateEditor = usePlateEditorRef();
+  const query = useQuery();
+  if (query === null) return null;
   const queryLower = query.toLowerCase();
   const buttonsToShow = (
     [
@@ -43,7 +47,6 @@ export default function SlashDropdown({
             new Array(query.length + 1)
               .fill(null)
               .forEach(() => editor.deleteBackward("character")); // why don't this function accept a length param?
-            onClick();
           }}
           className="rounded px-2 py-1 text-left transition hover:bg-slate-200"
         >
