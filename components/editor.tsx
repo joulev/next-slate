@@ -14,7 +14,7 @@ import { components } from "~/components/editor/components";
 import { exitBreakPlugin } from "~/components/editor/exit-break";
 import { useState } from "react";
 import { getCaretPosition } from "~/components/editor/get-caret-position";
-import SlashDropdown from "./editor/slash-dropdown";
+import SlashDropdown from "~/components/editor/slash-dropdown";
 
 const plugins = createPlugins(
   [
@@ -39,6 +39,10 @@ export default function Editor({ className }: { className?: string }) {
             setCaretPos(getCaretPosition());
             // this is a very simplified version
             switch (e.key) {
+              case "ArrowDown":
+              case "ArrowUp":
+                if (slashQuery !== null) e.preventDefault();
+                break;
               case "/":
                 setSlashQuery("");
                 break;
@@ -59,7 +63,12 @@ export default function Editor({ className }: { className?: string }) {
         initialValue={initialValue}
       >
         {slashQuery !== null && (
-          <SlashDropdown top={caretPos.top} left={caretPos.left} query={slashQuery} />
+          <SlashDropdown
+            top={caretPos.top}
+            left={caretPos.left}
+            query={slashQuery}
+            onClick={() => setSlashQuery(null)}
+          />
         )}
       </Plate>
     </DndProvider>
