@@ -1,17 +1,8 @@
-import { useState } from "react";
-import { createEditor, Descendant } from "slate";
-import { Slate, Editable, withReact } from "slate-react";
-import { withHistory } from "slate-history";
+import dynamic from "next/dynamic";
 
-const initialValue: Descendant[] = [
-  { children: [{ text: "This is editable plain text, just like a <textarea>!" }] },
-];
+// Fix "Prop `data-slate-editor-id` did not match" error
+const Editor = dynamic(() => import("~/components/editor"), { ssr: false });
 
 export default function IndexPage() {
-  const [editor] = useState(() => withReact(withHistory(createEditor())));
-  return (
-    <Slate editor={editor} value={initialValue}>
-      <Editable placeholder="Enter some plain text..." />
-    </Slate>
-  );
+  return <Editor />;
 }
